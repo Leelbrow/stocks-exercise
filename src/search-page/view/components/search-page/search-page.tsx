@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { FC, JSX } from "react";
-import Layout from "../../../../layout/view/components/layout/layout";
+import { Layout } from "../../../../layout";
 
 const SearchPage: FC = (): JSX.Element => {
   return (
