@@ -7,13 +7,45 @@ exports[`SearchPage renders 1`] = `
     <div>
       <div
         class="container"
-      />
+      >
+        <header
+          class="container header"
+        >
+          <h1
+            class="title"
+          >
+            Stocks
+          </h1>
+        </header>
+        <main
+          class="mainContent"
+        />
+        <footer
+          class="container footer"
+        />
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
       class="container"
-    />
+    >
+      <header
+        class="container header"
+      >
+        <h1
+          class="title"
+        >
+          Stocks
+        </h1>
+      </header>
+      <main
+        class="mainContent"
+      />
+      <footer
+        class="container footer"
+      />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
