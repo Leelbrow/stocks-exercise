@@ -2,17 +2,27 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC, JSX, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  Label,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import Placeholder from "../../../../_shared/components/placeholder/placeholder";
 import { Layout } from "../../../../layout";
 import { AppDispatch } from "../../../../store";
+import { StockPrices } from "../../../details.types";
 import {
   selectDetails,
   selectError,
   selectLoadingStatus,
 } from "../../../model/details.selectors";
 import { getDetails } from "../../../model/details.slice";
-import styles from "./details-page.module.scss";
-import Placeholder from "../../../../_shared/components/placeholder/placeholder";
 import PriceTable from "../price-table/price-table";
+import styles from "./details-page.module.scss";
 
 const DetailsPage: FC = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
@@ -50,7 +60,22 @@ const DetailsPage: FC = (): JSX.Element => {
           {loadingStatus === "success" && (
             <>
               <h2>{details?.symbol}</h2>
-              {details && <PriceTable prices={details.priceHistory[0]} />}
+              {details && (
+                <>
+                  <PriceTable prices={details.priceHistory[0]} />
+
+                  <ResponsiveContainer width="100%" height={400}>
+                    <LineChart data={details.priceHistory as StockPrices[]}>
+                      <Line type="monotone" dataKey="high" />
+                      <XAxis dataKey="date" />
+                      <YAxis>
+                        <Label angle={270}>Highest price</Label>
+                      </YAxis>
+                      <Tooltip />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </>
+              )}
             </>
           )}
 

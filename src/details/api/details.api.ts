@@ -68,7 +68,7 @@ const mapResult = (dto: StockDetailsDto): StockDetails => {
     const d2 = new Date(p2.date);
     return d1.valueOf() - d2.valueOf();
   });
-  return { symbol, priceHistory };
+  return { symbol, priceHistory: priceHistory.slice(0, 20) };
 };
 
 const mapItem = ([dateString, pricesDto]: [
