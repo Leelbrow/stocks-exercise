@@ -1,21 +1,27 @@
 import { ChangeEvent, FC, JSX, useCallback } from "react";
 import styles from "./search-bar.module.scss";
+import { PropsWithClassName } from "../../../../_shared/types";
+import clsx from "clsx";
 
-type SearchBarProps = {
+type SearchBarProps = PropsWithClassName<{
   readonly value: string;
-  readonly onChange: (value: string) => void;
-};
+  readonly onInput: (value: string) => void;
+}>;
 
-const SearchBar: FC<SearchBarProps> = ({ value, onChange }): JSX.Element => {
+const SearchBar: FC<SearchBarProps> = ({
+  value,
+  className,
+  onInput,
+}): JSX.Element => {
   const handleInput = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      onChange(event.currentTarget.value);
+      onInput(event.currentTarget.value);
     },
-    [onChange]
+    [onInput]
   );
 
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container, className)}>
       <input
         className={styles.input}
         type="text"

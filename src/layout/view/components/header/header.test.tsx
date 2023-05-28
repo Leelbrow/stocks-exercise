@@ -8,5 +8,5 @@ describe(`${Header.name}`, () => {
     expect(render(<Header />)).toMatchSnapshot();
   });
 
-  testAcceptsExternalClassName(Header);
+  testAcceptsExternalClassName(Header, {});
 });

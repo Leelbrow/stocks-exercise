@@ -8,5 +8,5 @@ describe(`${Footer.name}`, () => {
     expect(render(<Footer />)).toMatchSnapshot();
   });
 
-  testAcceptsExternalClassName(Footer);
+  testAcceptsExternalClassName(Footer, {});
 });

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { FC, JSX } from "react";
-import { PropsWithClassName } from "../../../../_shared/types/general.types";
+import { PropsWithClassName } from "../../../../_shared/types";
 import styles from "./header.module.scss";
 
 const Header: FC<PropsWithClassName> = ({ className }): JSX.Element => {
