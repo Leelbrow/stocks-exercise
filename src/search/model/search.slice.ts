@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { List, LoadingStatus } from "../../_shared/types";
 import { fetchSearchResults } from "../api/search.api";
-import { SearchItem } from "../search.types";
+import { SimpleStock } from "../search.types";
 
 export type SearchState = {
-  results: List<SearchItem> | null;
+  results: List<SimpleStock> | null;
   loadingStatus: LoadingStatus;
   error: string | null;
 };
@@ -15,10 +15,7 @@ const initialState: SearchState = {
   error: null,
 };
 
-export const search = createAsyncThunk(
-  "search/search",
-  fetchSearchResults
-);
+export const search = createAsyncThunk("search/search", fetchSearchResults);
 
 const searchSlice = createSlice({
   name: "search",

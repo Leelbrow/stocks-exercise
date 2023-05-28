@@ -5,3 +5,5 @@ export type PropsWithClassName<Props extends object = object> = Props & {
 export type List<T> = readonly T[];
 
 export type LoadingStatus = "idle" | "loading" | "success" | "error";
+
+export type JsonSerializable = object | number | boolean;

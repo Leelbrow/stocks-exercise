@@ -1,7 +1,7 @@
 import { apiKey } from "../../constants";
-import { SearchItem } from "../search.types";
+import { SimpleStock } from "../search.types";
 import {
-  SearchItemDto,
+  SimpleStockDto,
   SearchResult,
   SearchResultDto,
 } from "./search.api.types";
@@ -16,7 +16,7 @@ export const fetchSearchResults = (searchTerm: string): Promise<SearchResult> =>
 const mapResult = (dto: SearchResultDto): SearchResult =>
   dto.bestMatches.map(mapItem);
 
-const mapItem = (dto: SearchItemDto): SearchItem => ({
+const mapItem = (dto: SimpleStockDto): SimpleStock => ({
   symbol: dto["1. symbol"],
   name: dto["2. name"],
 });

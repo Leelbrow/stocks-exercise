@@ -1,4 +1,4 @@
-export type SearchItem = {
+export type SimpleStock = {
   readonly symbol: string;
   readonly name: string;
 };

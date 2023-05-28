@@ -1,13 +1,13 @@
 import { List } from "../../_shared/types";
-import { SearchItem } from "../search.types";
+import { SimpleStock } from "../search.types";
 
-export type SearchResult = List<SearchItem>;
+export type SearchResult = List<SimpleStock>;
 
 export type SearchResultDto = {
-  readonly bestMatches: List<SearchItemDto>;
+  readonly bestMatches: List<SimpleStockDto>;
 };
 
-export type SearchItemDto = {
+export type SimpleStockDto = {
   "1. symbol": string;
   "2. name": string;
 };

@@ -7,7 +7,7 @@ import {
   distinctUntilChanged,
   filter,
 } from "rxjs";
-import StockQuoteCard from "../../../../_shared/components/stock-quote-card/stock-quote-card";
+import StockCard from "../../../../_shared/components/stock-card/stock-card";
 import { Layout } from "../../../../layout";
 import { AppDispatch } from "../../../../store";
 import {
@@ -19,6 +19,8 @@ import {
 import { search } from "../../../model/search.slice";
 import SearchBar from "../search-bar/search-bar";
 import styles from "./search-page.module.scss";
+import Link from "next/link";
+import Placeholder from "../../../../_shared/components/placeholder/placeholder";
 
 const SearchPage: FC = (): JSX.Element => {
   const results = useSelector(selectResults);
@@ -56,6 +58,19 @@ const SearchPage: FC = (): JSX.Element => {
     [searchTerm$]
   );
 
+  const getPlaceholderText = () => {
+    switch (loadingStatus) {
+      case "idle":
+        return "No results yet. Use the search bar.";
+      case "loading":
+        return "Loading";
+      case "error":
+        return `Error: ${error}`;
+      case "success":
+        return "No results found";
+    }
+  };
+
   return (
     <>
       <Head>
@@ -68,28 +83,14 @@ const SearchPage: FC = (): JSX.Element => {
           {canShowResults && (
             <div className={styles.results}>
               {results?.map(({ symbol, name }) => (
-                <StockQuoteCard
-                  key={symbol}
-                  symbol={symbol}
-                  name={name}
-                  onClick={() => null}
-                />
+                <Link key={symbol} href={`/details/${symbol}`}>
+                  <StockCard symbol={symbol} name={name} />
+                </Link>
               ))}
             </div>
           )}
 
-          {!canShowResults && (
-            <div className={styles.placeholder}>
-              {loadingStatus === "idle" &&
-                "No results yet. Use the search bar."}
-
-              {loadingStatus === "loading" && "Loading"}
-
-              {loadingStatus === "error" && error}
-
-              {loadingStatus === "success" && "No results found"}
-            </div>
-          )}
+          {!canShowResults && <Placeholder text={getPlaceholderText()} />}
         </main>
       </Layout>
     </>
