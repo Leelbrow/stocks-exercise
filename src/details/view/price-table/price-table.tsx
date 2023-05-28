@@ -1,6 +1,6 @@
 import { FC, JSX } from "react";
-import { formatAsUsd } from "../../../../_shared/utils/format-as-usd";
-import { StockPrices } from "../../../details.types";
+import { StockPrices } from "../../../_shared/types/model.types";
+import { formatAsUsd } from "../../../_shared/utils/format-as-usd";
 import styles from "./price-table.module.scss";
 
 type PriceTableProps = {

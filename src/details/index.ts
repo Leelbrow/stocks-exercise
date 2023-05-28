@@ -1,1 +1,1 @@
-export { default as DetailsPage } from "./view/components/details-page/details-page";
+export { default as DetailsPage } from "./view/details-page/details-page";

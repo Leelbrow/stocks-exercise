@@ -7,19 +7,19 @@ import {
   distinctUntilChanged,
   filter,
 } from "rxjs";
-import Placeholder from "../../../../_shared/components/placeholder/placeholder";
-import StockList from "../../../../_shared/components/stock-list/stock-list";
-import { Layout } from "../../../../layout";
-import { AppDispatch } from "../../../../store";
+import Placeholder from "../../../_shared/components/placeholder/placeholder";
+import StockList from "../../../_shared/components/stock-list/stock-list";
+import { AppDispatch } from "../../../store";
 import {
   selectCanShowResults,
   selectError,
   selectLoadingStatus,
   selectResults,
-} from "../../../model/search.selectors";
-import { search } from "../../../model/search.slice";
+} from "../../model/search.selectors";
+import { search } from "../../model/search.slice";
 import SearchBar from "../search-bar/search-bar";
 import styles from "./search-page.module.scss";
+import Layout from "../../../_shared/components/layout/layout";
 
 const SearchPage: FC = (): JSX.Element => {
   const results = useSelector(selectResults);

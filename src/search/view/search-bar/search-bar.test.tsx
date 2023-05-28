@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import SearchBar from "./search-bar";
 import { fireEvent, render } from "@testing-library/react";
-import { testAcceptsExternalClassName } from "../../../../_shared/tests/test-accepts-external-classname";
+import { testAcceptsExternalClassName } from "../../../_shared/tests/test-accepts-external-classname";
 
 describe(`${SearchBar.name}`, () => {
   const value = "value";

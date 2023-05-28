@@ -1,9 +1,9 @@
-import { apiKey } from "../../constants";
-import { SimpleStock } from "../search.types";
+import { SimpleStock } from "../../_shared/types/model.types";
+import { apiKey } from "../../_shared/constants";
 import {
-  SimpleStockDto,
   SearchResult,
   SearchResultDto,
+  SimpleStockDto,
 } from "./search.api.types";
 
 export const fetchSearchResults = (searchTerm: string): Promise<SearchResult> =>

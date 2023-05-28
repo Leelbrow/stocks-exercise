@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FC, JSX, ReactElement, cloneElement } from "react";
-import Footer from "../footer/footer";
-import Header from "../header/header";
+import Footer from "./components/footer/footer";
+import Header from "./components/header/header";
 import styles from "./layout.module.scss";
 
 type LayoutProps = {

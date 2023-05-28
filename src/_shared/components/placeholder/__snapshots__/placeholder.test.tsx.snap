@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout renders 1`] = `
+exports[`Placeholder renders 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,23 +8,7 @@ exports[`Layout renders 1`] = `
       <div
         class="container"
       >
-        <header
-          class="container header"
-        >
-          <h1
-            class="title"
-          >
-            Stocks
-          </h1>
-        </header>
-        <div
-          class="mainContent"
-        >
-          children
-        </div>
-        <footer
-          class="container footer"
-        />
+        text
       </div>
     </div>
   </body>,
@@ -32,23 +16,7 @@ exports[`Layout renders 1`] = `
     <div
       class="container"
     >
-      <header
-        class="container header"
-      >
-        <h1
-          class="title"
-        >
-          Stocks
-        </h1>
-      </header>
-      <div
-        class="mainContent"
-      >
-        children
-      </div>
-      <footer
-        class="container footer"
-      />
+      text
     </div>
   </div>,
   "debug": [Function],

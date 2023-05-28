@@ -1,9 +1,9 @@
 import { FC, JSX } from "react";
 import { useSelector } from "react-redux";
-import Placeholder from "../../../../_shared/components/placeholder/placeholder";
-import StockList from "../../../../_shared/components/stock-list/stock-list";
-import { Layout } from "../../../../layout";
-import { selectFavorites } from "../../../model/favorites.selectors";
+import Layout from "../../../_shared/components/layout/layout";
+import Placeholder from "../../../_shared/components/placeholder/placeholder";
+import StockList from "../../../_shared/components/stock-list/stock-list";
+import { selectFavorites } from "../../model/favorites.selectors";
 import styles from "./favorites-page.module.scss";
 
 const FavoritesPage: FC = (): JSX.Element => {

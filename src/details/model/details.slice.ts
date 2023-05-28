@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { LoadingStatus } from "../../_shared/types/general.types";
+import { StockDetails } from "../../_shared/types/model.types";
 import { fetchDetails } from "../api/details.api";
-import { StockDetails } from "../details.types";
 
 export type DetailsState = {
   data: StockDetails | null;

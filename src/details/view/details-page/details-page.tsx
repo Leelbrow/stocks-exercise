@@ -11,16 +11,16 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import Placeholder from "../../../../_shared/components/placeholder/placeholder";
-import { Layout } from "../../../../layout";
-import { AppDispatch } from "../../../../store";
-import { StockPrices } from "../../../details.types";
+import Layout from "../../../_shared/components/layout/layout";
+import Placeholder from "../../../_shared/components/placeholder/placeholder";
+import { StockPrices } from "../../../_shared/types/model.types";
+import { AppDispatch } from "../../../store";
 import {
   selectDetails,
   selectError,
   selectLoadingStatus,
-} from "../../../model/details.selectors";
-import { getDetails } from "../../../model/details.slice";
+} from "../../model/details.selectors";
+import { getDetails } from "../../model/details.slice";
 import PriceTable from "../price-table/price-table";
 import styles from "./details-page.module.scss";
 

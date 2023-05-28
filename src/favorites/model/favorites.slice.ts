@@ -17,7 +17,6 @@ export const saveFavoritesToStorage = (favorites: List<SimpleStock>) => {
 
 export const loadFavoritesFromStorage = createAction("favorites/load", () => {
   const favorites = JsonStorage.get<List<SimpleStock>>(["favorites"]) ?? [];
-  console.log('LOADED FAVORITES', favorites);
   return { payload: favorites };
 });
 

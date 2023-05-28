@@ -6,12 +6,12 @@ import { selectFavorites } from "../../../favorites/model/favorites.selectors";
 import { addFavorite } from "../../../favorites/model/favorites.slice";
 import styles from "./stock-card.module.scss";
 
-type StockQuoteCardProps = {
+type StockCardProps = {
   readonly symbol: string;
   readonly name: string;
 };
 
-const StockCard: FC<StockQuoteCardProps> = ({ symbol, name }) => {
+const StockCard: FC<StockCardProps> = ({ symbol, name }) => {
   const favorites = useSelector(selectFavorites);
   const dispatch = useDispatch();
 

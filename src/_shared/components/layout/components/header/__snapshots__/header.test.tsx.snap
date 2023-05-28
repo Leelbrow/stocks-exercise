@@ -11,8 +11,22 @@ exports[`Header renders 1`] = `
         <h1
           class="title"
         >
-          Stocks
+          <a
+            href="/"
+          >
+            Stocks
+          </a>
         </h1>
+        <nav
+          class="menu"
+        >
+          <a
+            class="menuItem"
+            href="favorites"
+          >
+            Favorites
+          </a>
+        </nav>
       </header>
     </div>
   </body>,
@@ -23,8 +37,22 @@ exports[`Header renders 1`] = `
       <h1
         class="title"
       >
-        Stocks
+        <a
+          href="/"
+        >
+          Stocks
+        </a>
       </h1>
+      <nav
+        class="menu"
+      >
+        <a
+          class="menuItem"
+          href="favorites"
+        >
+          Favorites
+        </a>
+      </nav>
     </header>
   </div>,
   "debug": [Function],

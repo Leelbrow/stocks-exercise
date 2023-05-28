@@ -1,8 +1,8 @@
 import { FC } from "react";
+import { Toaster } from "react-hot-toast";
 import { useFavoritePersistence } from "../src/favorites/model/use-favorites-persistence.hook";
 import "../src/globals.scss";
 import { nextReduxWrapper } from "../src/store";
-import { Toaster } from "react-hot-toast";
 
 type AppProps = { readonly Component: FC; readonly pageProps: object };
 

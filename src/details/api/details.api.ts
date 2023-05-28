@@ -1,7 +1,7 @@
 import { differenceInMinutes } from "date-fns";
+import { StockDetails, StockPrices } from "../../_shared/types/model.types";
 import JsonStorage from "../../_shared/utils/json-storage";
-import { apiKey } from "../../constants";
-import { StockDetails, StockPrices } from "../details.types";
+import { apiKey } from "../../_shared/constants";
 import { StockDetailsDto, StockPricesDto } from "./details.api.types";
 
 const localStorageKeys = {

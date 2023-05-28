@@ -1,1 +1,1 @@
-export { default as SearchPage } from "./view/components/search-page/search-page";
+export { default as SearchPage } from "./view/search-page/search-page";

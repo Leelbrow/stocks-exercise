@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StockQuoteCard renders 1`] = `
+exports[`Layout renders 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,16 +8,37 @@ exports[`StockQuoteCard renders 1`] = `
       <div
         class="container"
       >
-        <div
-          class="symbol"
+        <header
+          class="container header"
         >
-          ABC
-        </div>
+          <h1
+            class="title"
+          >
+            <a
+              href="/"
+            >
+              Stocks
+            </a>
+          </h1>
+          <nav
+            class="menu"
+          >
+            <a
+              class="menuItem"
+              href="favorites"
+            >
+              Favorites
+            </a>
+          </nav>
+        </header>
         <div
-          class="name"
+          class="mainContent"
         >
-          Lorem Ipsum
+          children
         </div>
+        <footer
+          class="container footer"
+        />
       </div>
     </div>
   </body>,
@@ -25,16 +46,37 @@ exports[`StockQuoteCard renders 1`] = `
     <div
       class="container"
     >
-      <div
-        class="symbol"
+      <header
+        class="container header"
       >
-        ABC
-      </div>
+        <h1
+          class="title"
+        >
+          <a
+            href="/"
+          >
+            Stocks
+          </a>
+        </h1>
+        <nav
+          class="menu"
+        >
+          <a
+            class="menuItem"
+            href="favorites"
+          >
+            Favorites
+          </a>
+        </nav>
+      </header>
       <div
-        class="name"
+        class="mainContent"
       >
-        Lorem Ipsum
+        children
       </div>
+      <footer
+        class="container footer"
+      />
     </div>
   </div>,
   "debug": [Function],
