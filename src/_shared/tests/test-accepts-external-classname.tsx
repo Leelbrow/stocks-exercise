@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { FC } from "react";
-import { PropsWithClassName } from "../types";
+import { PropsWithClassName } from "../types/general.types";
 
 export const testAcceptsExternalClassName = <Props extends PropsWithClassName>(
   Component: FC<Props>,

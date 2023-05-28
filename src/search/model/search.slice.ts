@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { List, LoadingStatus } from "../../_shared/types";
+import { List, LoadingStatus } from "../../_shared/types/general.types";
+import { SimpleStock } from "../../_shared/types/model.types";
 import { fetchSearchResults } from "../api/search.api";
-import { SimpleStock } from "../search.types";
 
 export type SearchState = {
   results: List<SimpleStock> | null;

@@ -1,10 +1,25 @@
 .container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 80px;
   background-color: grey;
 }
 
 .title {
-  margin: auto;
   font-size: 24px;
+  padding: 20px;
+}
+
+.menu {
+  height: 100%;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  font-size: 16px;
 }

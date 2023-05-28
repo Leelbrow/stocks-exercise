@@ -7,7 +7,8 @@ import {
   distinctUntilChanged,
   filter,
 } from "rxjs";
-import StockCard from "../../../../_shared/components/stock-card/stock-card";
+import Placeholder from "../../../../_shared/components/placeholder/placeholder";
+import StockList from "../../../../_shared/components/stock-list/stock-list";
 import { Layout } from "../../../../layout";
 import { AppDispatch } from "../../../../store";
 import {
@@ -19,8 +20,6 @@ import {
 import { search } from "../../../model/search.slice";
 import SearchBar from "../search-bar/search-bar";
 import styles from "./search-page.module.scss";
-import Link from "next/link";
-import Placeholder from "../../../../_shared/components/placeholder/placeholder";
 
 const SearchPage: FC = (): JSX.Element => {
   const results = useSelector(selectResults);
@@ -80,17 +79,11 @@ const SearchPage: FC = (): JSX.Element => {
       <Layout>
         <main className={styles.container}>
           <SearchBar value={searchTerm} onInput={handleInput} />
-          {canShowResults && (
-            <div className={styles.results}>
-              {results?.map(({ symbol, name }) => (
-                <Link key={symbol} href={`/details/${symbol}`}>
-                  <StockCard symbol={symbol} name={name} />
-                </Link>
-              ))}
-            </div>
+          {canShowResults && results ? (
+            <StockList items={results} />
+          ) : (
+            <Placeholder text={getPlaceholderText()} />
           )}
-
-          {!canShowResults && <Placeholder text={getPlaceholderText()} />}
         </main>
       </Layout>
     </>

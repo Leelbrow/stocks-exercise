@@ -1,4 +1,4 @@
-import { JsonSerializable } from "../types";
+import { JsonSerializable } from "../types/general.types";
 
 const get = <T extends JsonSerializable>(
   keys: [string, ...string[]]

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { LoadingStatus } from "../../_shared/types";
+import { LoadingStatus } from "../../_shared/types/general.types";
 import { fetchDetails } from "../api/details.api";
 import { StockDetails } from "../details.types";
 

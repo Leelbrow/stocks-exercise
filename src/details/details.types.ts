@@ -1,4 +1,4 @@
-import { List } from "../_shared/types";
+import { List } from "../_shared/types/general.types";
 
 export type StockDetails = {
   readonly symbol: string;

@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, JSX, useCallback } from "react";
 import styles from "./search-bar.module.scss";
-import { PropsWithClassName } from "../../../../_shared/types";
+import { PropsWithClassName } from "../../../../_shared/types/general.types";
 import clsx from "clsx";
 
 type SearchBarProps = PropsWithClassName<{

@@ -1,5 +1,5 @@
-import { List } from "../../_shared/types";
-import { SimpleStock } from "../search.types";
+import { List } from "../../_shared/types/general.types";
+import { SimpleStock } from "../../_shared/types/model.types";
 
 export type SearchResult = List<SimpleStock>;
 
