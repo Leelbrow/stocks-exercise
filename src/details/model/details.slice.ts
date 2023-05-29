@@ -1,6 +1,8 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
 import { LoadingStatus } from "../../_shared/types/general.types";
 import { StockDetails } from "../../_shared/types/model.types";
+import { AppState } from "../../store";
 import { fetchDetails } from "../api/details.api";
 
 export type DetailsState = {
@@ -23,6 +25,10 @@ const detailsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
+      .addCase(HYDRATE, (state, action) => ({
+        ...state,
+        ...(action as unknown as PayloadAction<AppState>).payload.details,
+      }))
       .addCase(getDetails.pending, (state) => ({
         ...state,
         loadingStatus: "loading",

@@ -3,6 +3,7 @@ import { StockDetails, StockPrices } from "../../_shared/types/model.types";
 import JsonStorage from "../../_shared/utils/json-storage";
 import { apiKey } from "../../_shared/constants";
 import { StockDetailsDto, StockPricesDto } from "./details.api.types";
+import { isBrowser } from "../../_shared/utils/is-browser";
 
 const localStorageKeys = {
   lastFetchTime: "last-fetch-time",
@@ -23,6 +24,8 @@ export const fetchDetails = (symbol: string): Promise<StockDetails> => {
 };
 
 const isRefetchNeeded = (symbol: string): boolean => {
+  if (!isBrowser()) return true;
+
   const lastFetchTimestamp = JsonStorage.get<number>([
     localStorageKeys.lastFetchTime,
     symbol,
@@ -55,8 +58,10 @@ const getCachedResult = (symbol: string): StockDetails => {
 const cacheResult =
   (symbol: string) =>
   (result: StockDetails): StockDetails => {
-    JsonStorage.set([localStorageKeys.lastFetchTime, symbol], Date.now());
-    JsonStorage.set([localStorageKeys.details, symbol], result);
+    if (isBrowser()) {
+      JsonStorage.set([localStorageKeys.lastFetchTime, symbol], Date.now());
+      JsonStorage.set([localStorageKeys.details, symbol], result);
+    }
     return result;
   };
 
