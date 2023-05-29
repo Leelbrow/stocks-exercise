@@ -1,69 +1,14 @@
-import { differenceInMinutes } from "date-fns";
-import { StockDetails, StockPrices } from "../../_shared/types/model.types";
-import JsonStorage from "../../_shared/utils/json-storage";
 import { apiKey } from "../../_shared/constants";
+import { StockDetails, StockPrices } from "../../_shared/types/model.types";
 import { StockDetailsDto, StockPricesDto } from "./details.api.types";
-import { isBrowser } from "../../_shared/utils/is-browser";
-
-const localStorageKeys = {
-  lastFetchTime: "last-fetch-time",
-  details: "details",
-} as const;
 
 export const fetchDetails = (symbol: string): Promise<StockDetails> => {
-  if (isRefetchNeeded(symbol)) {
-    return fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`
-    )
-      .then((response): Promise<StockDetailsDto> => response.json())
-      .then(mapResult)
-      .then(cacheResult(symbol));
-  } else {
-    return Promise.resolve(getCachedResult(symbol));
-  }
+  return fetch(
+    `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`
+  )
+    .then((response): Promise<StockDetailsDto> => response.json())
+    .then(mapResult);
 };
-
-const isRefetchNeeded = (symbol: string): boolean => {
-  if (!isBrowser()) return true;
-
-  const lastFetchTimestamp = JsonStorage.get<number>([
-    localStorageKeys.lastFetchTime,
-    symbol,
-  ]);
-  const cachedDetails = JsonStorage.get<StockDetails>([
-    localStorageKeys.details,
-    symbol,
-  ]);
-
-  if (!lastFetchTimestamp || !cachedDetails) return true;
-
-  const now = new Date();
-  const lastFetchTime = new Date(lastFetchTimestamp);
-  return differenceInMinutes(now, lastFetchTime) > 1;
-};
-
-const getCachedResult = (symbol: string): StockDetails => {
-  const result = JsonStorage.get<StockDetails>([
-    localStorageKeys.details,
-    symbol,
-  ]);
-
-  if (result === null) {
-    throw new Error("cached result is unexpectedly null");
-  }
-
-  return result;
-};
-
-const cacheResult =
-  (symbol: string) =>
-  (result: StockDetails): StockDetails => {
-    if (isBrowser()) {
-      JsonStorage.set([localStorageKeys.lastFetchTime, symbol], Date.now());
-      JsonStorage.set([localStorageKeys.details, symbol], result);
-    }
-    return result;
-  };
 
 const mapResult = (dto: StockDetailsDto): StockDetails => {
   const symbol = dto["Meta Data"]["2. Symbol"];
