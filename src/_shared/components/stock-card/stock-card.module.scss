@@ -1,27 +1,49 @@
+@use "../../styles/colors";
+@use "../../styles/vars" as *;
+
 .container {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto 1fr;
-  column-gap: 20px;
-  background-color: lightgrey;
-  padding: 20px;
+  gap: $std-padding / 2;
+  padding: $std-padding;
+  border-radius: $std-border-radius;
+  background-color: colors.$dark-background;
 }
 
 .symbol {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 600;
 }
 
 .name {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .favoritesButton {
+  $size: 40px;
+
   grid-column: 2 / 3;
   grid-row: 1 / 3;
-  background-color: grey;
+  align-self: center;
+  width: $size;
+  height: $size;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: colors.$dark-text;
+  transition: transform $std-anim-length;
+
+  &:hover {
+    transform: rotate(10deg) scale(1.1);
+  }
+}
+
+.favoritesIcon {
+  width: 100%;
+  height: 100%;
 }

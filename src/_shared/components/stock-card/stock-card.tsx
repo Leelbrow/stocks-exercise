@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../../favorites/model/favorites.selectors";
 import { addFavorite } from "../../../favorites/model/favorites.slice";
 import styles from "./stock-card.module.scss";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 type StockCardProps = {
   readonly symbol: string;
@@ -34,10 +35,9 @@ const StockCard: FC<StockCardProps> = ({ symbol, name }) => {
 
       <button
         className={styles.favoritesButton}
-        disabled={isFavorite}
         onClick={handleFavoritesButtonClick}
       >
-        Favorite
+        <AiOutlineStar className={styles.favoritesIcon} />
       </button>
     </div>
   );

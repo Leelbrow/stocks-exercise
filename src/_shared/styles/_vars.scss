@@ -1,0 +1,10 @@
+@use "./colors";
+
+$std-padding: 20px;
+
+$std-box-shadow: 1px 1px 5px 0 colors.$light-accent;
+$heavy-box-shadow: 1px 1px 5px 1px colors.$light-accent;
+
+$std-border-radius: 20px;
+
+$std-anim-length: 0.2s;
