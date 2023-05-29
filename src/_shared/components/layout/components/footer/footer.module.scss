@@ -1,4 +1,6 @@
+@use "../../../../styles/colors";
+
 .container {
-  height: 60px;
-  background-color: lightgrey;
+  height: 50px;
+  background-color: colors.$light-accent;
 }

@@ -2,15 +2,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC, JSX, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Label,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import Layout from "../../../_shared/components/layout/layout";
 import Placeholder from "../../../_shared/components/placeholder/placeholder";
 import { StockPrices } from "../../../_shared/types/model.types";
@@ -21,6 +12,7 @@ import {
   selectLoadingStatus,
 } from "../../model/details.selectors";
 import { getDetails } from "../../model/details.slice";
+import Chart from "../chart/chart";
 import PriceTable from "../price-table/price-table";
 import styles from "./details-page.module.scss";
 
@@ -63,17 +55,10 @@ const DetailsPage: FC = (): JSX.Element => {
               {details && (
                 <>
                   <PriceTable prices={details.priceHistory[0]} />
-
-                  <ResponsiveContainer width="100%" height={400}>
-                    <LineChart data={details.priceHistory as StockPrices[]}>
-                      <Line type="monotone" dataKey="high" />
-                      <XAxis dataKey="date" />
-                      <YAxis>
-                        <Label angle={270}>Highest price</Label>
-                      </YAxis>
-                      <Tooltip />
-                    </LineChart>
-                  </ResponsiveContainer>
+                  <Chart
+                    className={styles.chart}
+                    data={details.priceHistory as StockPrices[]}
+                  />
                 </>
               )}
             </>

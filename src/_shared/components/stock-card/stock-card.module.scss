@@ -2,13 +2,17 @@
 @use "../../styles/vars" as *;
 
 .container {
+  border-radius: $std-border-radius;
+  background-color: colors.$dark-background;
+  box-shadow: $std-box-shadow;
+}
+
+.link {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto 1fr;
   gap: $std-padding / 2;
   padding: $std-padding;
-  border-radius: $std-border-radius;
-  background-color: colors.$dark-background;
 }
 
 .symbol {

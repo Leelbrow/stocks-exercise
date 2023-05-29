@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { FC, JSX } from "react";
 import { useSelector } from "react-redux";
 import Layout from "../../../_shared/components/layout/layout";
@@ -10,15 +11,21 @@ const FavoritesPage: FC = (): JSX.Element => {
   const items = useSelector(selectFavorites);
 
   return (
-    <Layout>
-      <main className={styles.container}>
-        {items.length > 0 ? (
-          <StockList items={items} />
-        ) : (
-          <Placeholder text="No favorites yet. You can save them on the search page." />
-        )}
-      </main>
-    </Layout>
+    <>
+      <Head>
+        <title>Stocks - Favorites</title>
+      </Head>
+
+      <Layout>
+        <main className={styles.container}>
+          {items.length > 0 ? (
+            <StockList items={items} />
+          ) : (
+            <Placeholder text="No favorites yet. You can save them on the search page." />
+          )}
+        </main>
+      </Layout>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FC, useCallback, useMemo } from "react";
+import { FC, MouseEventHandler, useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,34 +23,40 @@ const StockCard: FC<StockCardProps> = ({ symbol, name }) => {
     return Boolean(favorites.find((favorite) => favorite.symbol === symbol));
   }, [favorites, symbol]);
 
-  const handleFavoritesButtonClick = useCallback(() => {
-    if (!isFavorite) {
-      dispatch(addFavorite({ symbol, name }));
-      toast.success("Favorite added!");
-    } else {
-      dispatch(removeFavorite(symbol));
-      toast.success("Favorite removed!");
-    }
-  }, [dispatch, isFavorite, symbol, name]);
+  const handleFavoritesButtonClick: MouseEventHandler<HTMLButtonElement> =
+    useCallback(
+      (event) => {
+        event.preventDefault();
+
+        if (!isFavorite) {
+          dispatch(addFavorite({ symbol, name }));
+          toast.success("Favorite added!");
+        } else {
+          dispatch(removeFavorite(symbol));
+          toast.success("Favorite removed!");
+        }
+      },
+      [dispatch, isFavorite, symbol, name]
+    );
 
   return (
     <div className={styles.container}>
-      <Link href={`details/${symbol}`}>
+      <Link className={styles.link} href={`details/${symbol}`}>
         <div className={styles.symbol}>{symbol}</div>
+
+        <div className={styles.name}>{name}</div>
+
+        <button
+          className={styles.favoritesButton}
+          onClick={handleFavoritesButtonClick}
+        >
+          {!isFavorite ? (
+            <AiOutlineStar className={styles.favoritesIcon} />
+          ) : (
+            <AiFillStar className={styles.favoritesIcon} />
+          )}
+        </button>
       </Link>
-
-      <div className={styles.name}>{name}</div>
-
-      <button
-        className={styles.favoritesButton}
-        onClick={handleFavoritesButtonClick}
-      >
-        {!isFavorite ? (
-          <AiOutlineStar className={styles.favoritesIcon} />
-        ) : (
-          <AiFillStar className={styles.favoritesIcon} />
-        )}
-      </button>
     </div>
   );
 };
