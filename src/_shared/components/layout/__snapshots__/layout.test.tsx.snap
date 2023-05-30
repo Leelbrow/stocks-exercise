@@ -25,7 +25,7 @@ exports[`Layout renders 1`] = `
           >
             <a
               class="menuItem"
-              href="favorites"
+              href="/favorites"
             >
               Favorites
             </a>
@@ -63,7 +63,7 @@ exports[`Layout renders 1`] = `
         >
           <a
             class="menuItem"
-            href="favorites"
+            href="/favorites"
           >
             Favorites
           </a>
