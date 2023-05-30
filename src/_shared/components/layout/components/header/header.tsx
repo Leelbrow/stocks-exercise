@@ -12,7 +12,7 @@ const Header: FC<PropsWithClassName> = ({ className }): JSX.Element => {
       </h1>
 
       <nav className={styles.menu}>
-        <Link className={styles.menuItem} href="favorites">
+        <Link className={styles.menuItem} href="/favorites">
           Favorites
         </Link>
       </nav>
